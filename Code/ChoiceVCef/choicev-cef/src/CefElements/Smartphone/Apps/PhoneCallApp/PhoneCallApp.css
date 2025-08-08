@@ -1,0 +1,162 @@
+:root {
+    --main-phone-phonecall-font-weight: 300;
+    --main-phone-phonecall-border-width: 0.2vh;
+    --main-phone-phonecall-border-width-thin: 0.1vh;
+}
+
+.phonePhoneCallWorkplace {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 28% 7.5% 22% 18% 24.5%;
+}
+
+/* 
+    Buttons
+*/
+
+.phonePhoneCallButtonWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s;
+}
+
+.phonePhoneCallButton:hover {
+    transform: scale(1.065, 1.065);
+}
+
+/* 
+    Top (Image CallerList)
+*/
+
+.phonePhoneCallTop {
+    display: grid;
+    grid-template-columns: 33% 33% 33%; 
+}
+
+.phonePhoneCallMembers {
+    height: 100%;
+    width: 100%;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+
+    padding-top: 10%;
+}
+
+.phonePhoneCallMembers::-webkit-scrollbar {
+    display: none;
+}
+
+
+.phonePhoneCallMember {
+    height: 2vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 70%; 
+}
+
+.phonePhoneCallMemberIcon {
+    height: 1.6vh;
+    width: 1.6vh;
+}
+
+.phonePhoneCallMemberName {
+    font-size: 0.9vh;
+    font-family: var(--main-font-family);
+
+    display: flex;
+    justify-content: left;
+    align-items: center; 
+}
+
+.phonePhoneCallImg {
+    height: 9vh;
+    width: 9vh;
+}
+
+/* 
+    Info
+*/
+
+.phonePhoneCallInfoWrapper {
+    display: grid;
+    grid-template-rows: 70% 40%;
+
+    font-family: var(--main-font-family);
+    font-weight: var(--main-phone-phonecall-font-weight);
+}
+
+.phonePhoneCallInfoTime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.5vh;
+}
+
+.phonePhoneCallInfoCost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.15vh;
+}
+
+/*  
+    Contact/Caller
+*/
+
+.phonePhoneCallContactInfo {
+    display: grid;
+    grid-template-rows: 50% 25% 25%;
+
+    font-family: var(--main-font-family);
+}
+
+.phonePhoneCallContactName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    font-size: 1.9vh;
+
+}
+
+.phonePhoneCallContactInfoInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    font-size: 1.5vh;
+    font-weight: var(--main-phone-phonecall-font-weight);
+}
+
+.phonePhoneCallContactTopButtons {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.onlyOneButton {
+    grid-template-columns: 33% 33% 33% !important;
+}
+
+.phonePhoneCallContactBottomButtons {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 17.5% 32.5% 32.5% 17.5%;
+}

@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<OutputPath>../server/resources/ChoiceVServer/</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Controller\TrainController.cs~RFad4a2ad.TMP\**" />
+	  <EmbeddedResource Remove="Controller\TrainController.cs~RFad4a2ad.TMP\**" />
+	  <None Remove="Controller\TrainController.cs~RFad4a2ad.TMP\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Controller\Old_Controllers\PlayerController.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Controller\Minijobs\MiniJobController.cs~RF38cf8e6.TMP" />
+	  <None Remove="InventorySystem\FoldingTable\Item\FoldingTableChemical.cs~RFc3582d.TMP" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AltV.Net" Version="16.2.2" />
+		<PackageReference Include="BenchmarkDotNet" Version="0.14.0" />
+		<PackageReference Include="Bogus" Version="34.0.2" />
+		<PackageReference Include="DSharpPlus" Version="4.4.9" />
+		<PackageReference Include="DSharpPlus.CommandsNext" Version="4.4.9" />
+		<PackageReference Include="DSharpPlus.Interactivity" Version="4.4.9" />
+		<PackageReference Include="DSharpPlus.SlashCommands" Version="4.4.9" />
+		<PackageReference Include="Fleck" Version="1.2.0" />
+		<PackageReference Include="Google.Protobuf" Version="3.19.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="NLog" Version="5.3.3" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+		<PackageReference Include="SSH.NET" Version="2024.1.0" />
+		<PackageReference Include="System.Security.Cryptography.Cng" Version="5.0.0" />
+		<PackageReference Include="TwoFactorAuth.Net" Version="1.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Model\Database\" />
+		<Folder Include="Model\FsDatabase\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="NLog.config">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</None>
+		<None Update="resource.cfg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ChoiceVExternApi\ChoiceVExternApi.csproj" />
+	  <ProjectReference Include="..\ChoiceVSharedApiModels\ChoiceVSharedApiModels.csproj" />
+	</ItemGroup>
+</Project>

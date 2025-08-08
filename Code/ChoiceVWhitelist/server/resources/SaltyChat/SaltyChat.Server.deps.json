@@ -1,0 +1,77 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SaltyChat.Server/1.0.0": {
+        "dependencies": {
+          "AltV.Net": "10.0.7"
+        },
+        "runtime": {
+          "SaltyChat.Server.dll": {}
+        }
+      },
+      "AltV.Net/10.0.7": {
+        "dependencies": {
+          "AltV.Net.Shared": "10.0.7"
+        },
+        "runtime": {
+          "lib/net6.0/AltV.Net.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AltV.Net.CApi/10.0.7": {
+        "runtime": {
+          "lib/net6.0/AltV.Net.CApi.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AltV.Net.Shared/10.0.7": {
+        "dependencies": {
+          "AltV.Net.CApi": "10.0.7"
+        },
+        "runtime": {
+          "lib/net6.0/AltV.Net.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SaltyChat.Server/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AltV.Net/10.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-If2Shj9iHwv6XJJ4cEXv/xtwr73oTIbDuNp2FueJDB0s/j2o0FaHivXTSBxbuigvDNuIrLtK1R/QiA5xL5Y8UQ==",
+      "path": "altv.net/10.0.7",
+      "hashPath": "altv.net.10.0.7.nupkg.sha512"
+    },
+    "AltV.Net.CApi/10.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1D501LVd8ttWETExy0cuVFW24NT1JlbuZ0PJCTvkBP0/ST15YgoOPUGwgrIM1NUDZVHKdgdMvCqjft3CMKnEfQ==",
+      "path": "altv.net.capi/10.0.7",
+      "hashPath": "altv.net.capi.10.0.7.nupkg.sha512"
+    },
+    "AltV.Net.Shared/10.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4FBelHbkzAtrEUxiFautZKLOJgSb6UgLeS7hdwj8S1InkDDEi0LNZWCWDrv+HmQvhZhdPqPuWXszGqjq0uD3DA==",
+      "path": "altv.net.shared/10.0.7",
+      "hashPath": "altv.net.shared.10.0.7.nupkg.sha512"
+    }
+  }
+}

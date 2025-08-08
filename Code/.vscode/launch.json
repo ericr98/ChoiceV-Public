@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Windows",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/server/altv-server.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/server",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "requireExactSource": false
+        },
+        {
+            "name": "Linux",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/server/altv-server",
+            "args": [],
+            "cwd": "${workspaceFolder}/server",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "requireExactSource": false
+        }
+    ]
+}

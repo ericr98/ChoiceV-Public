@@ -1,0 +1,75 @@
+﻿using AltV.Net.Elements.Entities;
+using System.Collections.Generic;
+
+namespace ChoiceVServer.Controller.Crime_Stuff {
+     public class FenceNetworkPillar : CrimeNetworkPillar {
+        public FenceNetworkPillar(int id) : base(id, "Hehler/Schmuggler") {
+
+        }
+
+        public override void onCrimeAction(IPlayer player, CrimeAction action, float amount, Dictionary<string, dynamic> data) { }
+
+        public override void onTick() { }
+
+        public override float getNeededReputation(string identifier) {
+            switch (identifier) {
+                //Level 0
+                case "MISSIONS":
+                    return 0;
+                case "CRIME_BUYER":
+                    return 0;
+                case "ILLEGALE_ITEM_DELIVERY_MISSIONS":
+                    return 0;
+                case "BASE_SHOP":
+                    return 0;
+                
+                case "ILLEGALE_ITEM_DELIVERY_MISSIONS_VARIATIONS":
+                    return 30;
+                
+                //Level 1
+                //case "SELECT_MISSION":
+                //    return 1000;
+                //case "ILLEGALE_ITEM_DELIVERY_MISSIONS_VARIATIONS":
+                //    return 1000;
+                //case "STEAL_VEHICLE_PART_MISSIONS":
+                //    return 1000;
+                //case "BASE_SHOP":
+                //    return 1000;
+
+                //Level 2
+                //case "CRIME_SPREE_MISSIONS":
+                //    return 3000;
+                //case "MISSIONS_FAVORS_REWARD":
+                //    return 3000;
+                //case "STEAL_VEHICLE_PART_MISSIONS_VARIATIONS":
+                //    return 3000;
+                //case "TODO3":
+                //    return 3000;
+
+                //Level 3
+                //case "TODO4":
+                //    return 6000;
+
+                default:
+                    return float.MaxValue;
+            }
+        }
+
+        public override float getCrimeNetworkAllowedActionReputation(string identifier) {
+            switch(identifier) {
+                case "TODO":
+                    return 0;
+
+                default:
+                    return float.MinValue;
+            }
+        }
+
+        public override List<CrimeAction> allConnectedCrimeActions() {
+            return new List<CrimeAction> {
+                CrimeAction.IllegalItemSell,
+                CrimeAction.StealVehiclePart,
+            };
+        }
+    }
+}

@@ -1,0 +1,94 @@
+.phonePhoneBookListElement {
+    width: 100%;
+    height: 3.5vh;
+    border-bottom: solid;
+    border-width: var(--main-phone-contact-border-width-thin);
+
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 50% 50%;
+}
+
+.phoneContactList {
+    width: 100%;
+    height: 31vh;
+    overflow-y: scroll;
+}
+
+.phonePhoneBookListElementName {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    text-align: left;
+    font-family: var(--main-font-family);
+
+    font-size: 1.3vh;
+    padding: 0.2vh;
+
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.phonePhoneBookListElementNumber {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    text-align: left;
+    font-family: var(--main-font-family);
+
+    font-size: 1.2vh;
+    letter-spacing: 0.1vh;
+    padding: 0.2vh;
+
+    grid-column: 1;
+    grid-row: 2;
+
+    color: grey;
+}
+
+.phonePhoneBookListElementButtonWrapper {
+    grid-column: 2;
+    grid-row: 1 / 3;
+}
+
+.phonePhoneBookListElementButtonImg {
+    height: 2vh;
+    width: 2vh;
+}
+
+.phonePhoneBookListElementButtonImg:hover {
+    transform: scale(1.1);
+}
+
+.phonePhoneBookBar {
+    height: 3vh;
+    width: 100%;
+    border-bottom: solid;
+    border-width: var(--main-phone-contact-border-width-thin);
+}
+
+.phonePhoneBookBarSearchWrapper {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    padding-left: 1vh;
+}
+
+.phonePhoneBookBarSearch {
+    height: 2vh;
+    width: 60%;
+    outline: none;
+    border-radius: 1.2vh;
+    border: none;
+    padding-left: 5%;
+    background-color: white;
+
+    font-size: 1.2vh;
+    font-family: var(--main-font-family);
+}

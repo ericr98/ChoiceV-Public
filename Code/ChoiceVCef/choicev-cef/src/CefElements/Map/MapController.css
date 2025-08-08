@@ -1,0 +1,36 @@
+.mapPlayerPosition {
+    position: absolute;
+    height: 1vh;
+    width: 1vh;
+    border: solid;
+    border-width: 0.12vh;
+    border-radius: 50%;  
+
+    animation-name: colorChange;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+.map {
+    transform: scale(0.75, 0.75);
+}
+
+@keyframes colorChange {
+    0% {
+      background-color:  #CC8A25;
+    }
+    25% {
+        background-color: #cb6f21;
+    }
+    50% {
+      background-color: #CC551E;
+    }
+    75% {
+        background-color: #cb391a;
+    }
+    100% {
+      background-color: #CB1F17;
+    }
+  }

@@ -1,0 +1,61 @@
+:root {
+  --main-bg-color: rgb(10, 10, 10, 0.95);
+  --sec-bg-color: rgb(35, 35, 35);
+  --sec-bg-color-faded: rgb(35, 35, 35, 0.95);
+  --main-bd-color: white;
+  --main-font-color: white;
+  --main-font-family: 'Lato';
+  --main-choicev-color: #CC8924;
+
+  --main-item-font-size: 13.5px;
+  --main-item-big-font-size: 15.5px;
+}
+
+
+body {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+
+  /*Uncomment for Background image*/
+  /* background-image: url(http://choicev-cef.net/src/cef/background.png);
+  background-size: 100%; */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+}
+
+@keyframes pulse {
+  25% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+
+  75% {
+    -webkit-transform: scale(0.85);
+    transform: scale(0.85);
+  }
+}
+
+@font-face {
+  font-family: "Digital-7";
+  src: local("Digital-7"),
+    url("../fonts/digital-7.ttf") format("truetype");
+  font-weight: bold;
+}

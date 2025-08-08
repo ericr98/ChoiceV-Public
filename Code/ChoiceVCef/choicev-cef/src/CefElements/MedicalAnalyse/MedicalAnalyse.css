@@ -1,0 +1,16 @@
+.medicalWrapper {
+    position: absolute;
+    left: 2%;
+    bottom: 3.6%;
+    display: flex;
+    align-items: center; 
+    z-index: 10;
+}
+
+.medicalImage {
+    height: 47vh;
+    width: 25vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

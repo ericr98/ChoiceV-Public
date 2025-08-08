@@ -1,0 +1,164 @@
+.mechGameWrapper {
+    display: inline-block;
+}
+
+.mechBigWrapper {
+    height: 100vh;
+
+    float: left;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mechGameCloserButton {
+    position: absolute;
+    width: 5vh;
+    height: 3vh;
+    margin-left: 25vh;
+
+    color: white;
+    background-color: #b23b3b;
+    border: none;
+
+    font-size: 2.25vh;
+    text-align: center;
+}
+
+#mechGameCloserButton:hover {
+    background-color: #6b1d1d; 
+    font-size: 2.6vh;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+#mechGameRemovedParts {
+    width: 30vh;
+    height: 50vh;
+
+    overflow-y: scroll;
+
+    background-color: rgb(20, 20, 20, 0.95);
+    border: solid;
+    border-width: 1px;
+    border-color: var(--main-choicev-color);
+
+    scrollbar-color: black;
+}
+
+#mechGameRemovedParts::-webkit-scrollbar {
+    background: #000;
+}
+
+#mechGameRemovedParts::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+#mechGameRemovedParts::-webkit-scrollbar-thumb {
+    background: #2e2e2e;
+}
+
+
+#mechGameRemovedParts > img{
+    margin-left: 2vh;
+}
+
+#mechGameRemovedParts > img:hover{
+    cursor: pointer;
+}
+
+.mechGameRemovedPart{
+    width: 40%;
+
+    margin-top: 1.5vh;
+}
+
+#mechGameWorkplace {
+    display: grid;
+    grid-gap: 10px;
+
+    margin-left: 5vh;
+
+    float: left;
+
+    color: white;
+}
+
+.mechGameGrid {
+    border: solid;
+    border-width: 1px;
+    border-color: var(--main-choicev-color);
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    background-color: rgb(20, 20, 20, 0.95);
+}
+
+.mechTopbar {
+    position: absolute;
+    margin-right: 10vh;
+    margin-bottom: 12.5vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.mechGameDepthCounter {
+    font-family: Lato;
+    font-size: 2vh;
+    font-weight: 100;
+}
+
+.mechGameGridButton {
+    width: 2vh;
+    height: 2vh;
+
+    margin-top: 0.3vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+    
+}
+
+.mechGameNotIdenPart {
+    z-index: 5;
+    width: 10vh;
+    height: 10vh;
+
+    background-color: black;
+}
+
+.mechGameNotIdenPart:hover{
+    cursor: pointer;
+}
+
+.mechGameNotIdenPartExtra {
+    z-index: 1;
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+
+    background-color: black;
+}
+
+.mechGameNotIdenPart > span {
+    color: white;
+    font-size: 5vh;
+
+    margin-bottom: 1vh;
+}
+
+.mechGameIdenPart {
+    width: 12vh;
+    height: 12vh;
+}
+
+.mechGameIdenPart:hover{
+    cursor: pointer;
+}

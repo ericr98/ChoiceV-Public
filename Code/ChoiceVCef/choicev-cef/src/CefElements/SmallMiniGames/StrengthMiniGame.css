@@ -1,0 +1,13 @@
+.bar-container {
+  background-color: black;
+  width: 200px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
+  margin: 0 auto; /* Center the bar container horizontally */
+  overflow: hidden;
+}
+
+.bar {
+  background-color: white;
+  height: 100%;
+  transition: width 0.3s ease-in-out; /* Add a smooth transition effect */
+}

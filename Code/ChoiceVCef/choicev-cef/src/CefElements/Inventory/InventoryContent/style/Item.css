@@ -1,0 +1,57 @@
+.itemContainer {
+    width: 90%;
+    height: 3vw;
+    background-color: var(--sec-bg-color);
+
+    display: grid;
+    grid-template-columns: 11% 24% 45% 8.5% 10.5%;
+    align-items: center;
+
+    padding-left: 1%;
+    padding-right: 1%;
+    font-family: var(--main-font-family);
+    color: var(--main-font-color);
+    font-size: 0.55vw;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 20px auto;
+}
+
+.equipped {
+    background-color: var(--main-choicev-color);
+}
+
+.itemIcon {
+    width: 65%;
+    height: 65%;
+    padding-left: 7%;
+}
+
+.chosen {
+   background-color: var(--main-bg-color);
+}
+    .itemContainer .descriptionWrapper {
+        height: 100%;
+        display: grid;
+        align-items: center;
+    }
+
+    .itemContainer .amount {
+        font-size: 0.7vw;
+    }
+
+    .itemContainer .amountSelect {
+        font-size: 0.7vw;
+        height: 30%;
+    }
+
+.itemContainer .nameWeightContainer .additionalInfo {
+    font-size: 0.6vw;
+    font-style: italic;
+    color: beige;
+}

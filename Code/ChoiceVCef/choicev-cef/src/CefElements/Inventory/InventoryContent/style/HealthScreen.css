@@ -1,0 +1,64 @@
+.healthScreen {
+    height: 86%;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.healthComponent {
+    height: 85%;
+    width: 90%;
+    background-color: var(--sec-bg-color);
+
+    align-self: center;
+    justify-self: center;
+}
+
+.healthTitle {
+    margin-left: 0.3vw;
+    margin-bottom: 1vh;
+    font-size: 2vh;
+    color: var(--main-font-color);
+}
+
+.healthSubTitle {
+    margin-left: 1.25vw;
+    margin-bottom: 0.75vh;
+    font-size: 1.75vh;
+    color: var(--main-font-color);
+}
+
+#painScale {
+    height: 1.5vh;
+    width: 90%;
+    background: rgb(51,156,21);
+    background: linear-gradient(90deg, rgba(51,156,21,1) 0%, rgba(222,211,45,1) 33%, rgba(203,11,11,1) 100%);
+}
+
+#painMeter {
+    position: absolute;
+    width: 0.4vh;
+    height: 2.75vh;
+    background-color: white;
+    left: 9%
+}
+
+.healthComponentDivider {
+    height: 2vh;
+}
+
+.healthInfoComponent {
+    margin-left: 1.25vw;
+    color: var(--main-font-color);
+    font-size: 1.65vh;
+}
+
+.injuryDetails {
+    margin: auto;
+    margin-top: 2%;
+    height: 50%;
+    width: 95%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

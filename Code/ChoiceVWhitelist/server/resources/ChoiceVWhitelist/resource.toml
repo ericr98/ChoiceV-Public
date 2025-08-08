@@ -1,0 +1,3 @@
+deps = []
+main = 'net6.0/ChoiceVWhitelist.dll'
+type = 'csharp'

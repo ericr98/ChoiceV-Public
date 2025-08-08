@@ -1,0 +1,4 @@
+client-files = [ 'Client/*' ]
+client-main = 'Client/app.js'
+main = 'SaltyChat.Server.dll'
+type = 'csharp'

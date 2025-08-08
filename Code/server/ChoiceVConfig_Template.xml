@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+	<ServerVersion>1</ServerVersion>
+    <ServerName>ChoiceV</ServerName>
+	<DevServerFlag>1</DevServerFlag>
+	
+	<DatabaseIp>DB-IP</DatabaseIp>
+	<DatabasePort>3306</DatabasePort>
+	<DatabaseDatabase>SCHEMA</DatabaseDatabase>
+	<DatabaseUser>USERNAME</DatabaseUser>
+	<DatabasePassword>'PASSWORD'</DatabasePassword>
+
+	<FVSDatabaseIp>DP-IP</FVSDatabaseIp>
+	<FVSDatabasePort>3306</FVSDatabasePort>
+	<FVSDatabaseDatabase>choicev_fs</FVSDatabaseDatabase>
+	<FVSDatabaseUser>USERNAME</FVSDatabaseUser>
+	<FVSDatabasePassword>'PASSWORD'</FVSDatabasePassword>
+
+	<WebSocketIp>ws://127.0.0.1:7788</WebSocketIp>
+	<CefIp>http://your-website.de/cef</CefIp>
+	<FsIp>https://your-website.de/companies/bulletinBoard.php</FsIp>
+	
+	<EnableDiscordBot>0</EnableDiscordBot>
+	<DiscordBotToken>DISCORD_BO_TOKEN</DiscordBotToken>
+	<DiscordServerId>SERVER_ID</DiscordServerId>
+	<DiscordCommandChannelId>CHANNEL_ID</DiscordCommandChannelId>
+	<DiscordLoggingChannelId>CHANNEL_ID</DiscordLoggingChannelId>
+	
+	<FtpAddress>www489.your-server.de</FtpAddress>
+	<FtpUser>NOT_NECESSARY_USERNAME</FtpUser>
+	<FtpPassword>NOT_NECESSARY_PASSWORD</FtpPassword>
+	<PublicKeyFileName>NOT_NECESSARY_FILENAME</PublicKeyFileName>
+	
+	<RadioProxyIp>http://IP:81</RadioProxyIp>
+	<RadioWebhookUser>NOT_NECESSARY_USERNAME</RadioWebhookUser>
+	<RadioWebhookPassword>NOT_NECESSARY_PASSWORD</RadioWebhookPassword>
+	
+	<SocialMediaHost>https://your-website.de/humhub</SocialMediaHost>
+	<SocialMediaJWTProvider>https://your-website.de/jwt/index.php</SocialMediaJWTProvider>
+	<SocialMediaUser>NOT_NECESSARY_USERNAME</SocialMediaUser>
+	<SocialMediaPassword>NOT_NECESSARY_PASSWORD</SocialMediaPassword>
+	
+	<WebhookIp>http://localhost:8080/</WebhookIp>
+	
+	<ExternApiUrl>http://localhost:1337/</ExternApiUrl>
+	<ExternApiNeededUsername>EXTERN_API_NEEDED_USERNAME</ExternApiNeededUsername>
+	<ExternApiNeededPassword>EXTERN_API_NEEDED_PASSWORD</ExternApiNeededPassword>
+
+	<UploadResourcesToCDN>0</UploadResourcesToCDN>
+	<CDNFtpAddress>CDN_FTP_ADDRESS</CDNFtpAddress>
+	<CDNFtpUser>CDN_FTP_USER</CDNFtpUser>
+	<CDNFtpPassword>CDN_FTP_PASSWORD</CDNFtpPassword>
+	<CDNConnectServerIp>CDN_CONNECT_ADDRESS</CDNConnectServerIp>
+	
+	
+	<EnableDamageSystem>1</EnableDamageSystem>
+	<VoiceSystem>NONE</VoiceSystem>
+	<EnableHunger>0</EnableHunger>
+	<RandomlySpawnedVehicles>0</RandomlySpawnedVehicles>
+	
+	<SkipPasswordLogin>1</SkipPasswordLogin>
+	<TwoFactorAuthentication>0</TwoFactorAuthentication>
+</Settings>

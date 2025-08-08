@@ -1,0 +1,30 @@
+#flipBookWrapper {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1% 92% 7%;
+}
+
+#flipBookContainer {
+    width: 40vh;
+    height: 6vh;
+    
+    display: grid;
+    grid-template-columns: 37.5% 25% 37.5%;
+}
+
+.flipBookPages {
+    color: white;
+}
+
+.flipBookPages > input {
+    width: 3.5vh;
+}
+
+.flipBookButton {
+    z-index: 100;
+
+    width: 14vh;
+    height: 3vh;
+    
+}

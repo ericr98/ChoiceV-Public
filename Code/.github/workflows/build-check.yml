@@ -1,0 +1,77 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: Build Server Resources
+
+on:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build-check:
+    runs-on: ubuntu-latest
+    environment: ServerCodeBuild
+    steps:
+    - uses: actions/checkout@v4
+   
+    - name: Extract version number
+      id: extract_version
+      run: |
+        if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          VERSION=$(echo "${{ github.event.pull_request.title }}" | grep -oP '^[a-zA-z\-]*\d+\.\d+\.\d+')
+        else
+          VERSION=$(echo "${{ github.event.head_commit.message }}" | grep -oP '^[a-zA-z\-]*\d+\.\d+\.\d+')
+        fi
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    
+    - name: Restore dependencies
+      run: dotnet restore
+    
+    - name: Install Entity Framework
+      run: |
+           dotnet tool install --global dotnet-ef
+           dotnet tool restore
+    
+    - name: Scaffold Prod-Game Database    
+      if: ${{ ! startsWith(github.event.pull_request.title, 'dev') }}
+      working-directory: ./ChoiceVDatabaseGenerator
+      env:
+        DB_HOST: ${{ vars.DB_HOST }}
+        DB_DATABASE: ${{ vars.DB_DATABASE }}
+        DB_USERNAME: ${{ vars.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      run: dotnet-ef dbcontext scaffold "Server=$DB_HOST;Port=3306;Database=$DB_DATABASE;Username=$DB_USERNAME;Password='$DB_PASSWORD'" Pomelo.EntityFrameworkCore.MySql --output-dir Model/Database --context ChoiceVDb --force --use-database-names --project ChoiceVDatabaseGenerator/ChoiceV.csproj 
+    
+    - name: Scaffold Dev-Game Database    
+      if: ${{ startsWith(github.event.pull_request.title, 'dev') }}
+      working-directory: ./ChoiceVDatabaseGenerator
+      env:
+        DB_HOST: ${{ vars.DB_HOST }}
+        DB_DATABASE: ${{ vars.DB_DEV_DATABASE }}
+        DB_USERNAME: ${{ vars.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      run: dotnet-ef dbcontext scaffold "Server=$DB_HOST;Port=3306;Database=$DB_DEV_DATABASE;Username=$DB_USERNAME;Password='$DB_PASSWORD'" Pomelo.EntityFrameworkCore.MySql --output-dir Model/Database --context ChoiceVDb --force --use-database-names --project ChoiceVDatabaseGenerator/ChoiceV.csproj 
+    
+    - name: Scaffold FileSystem Database
+      working-directory: ./ChoiceVDatabaseGenerator
+      env:
+        DB_HOST: ${{ vars.DB_HOST }}
+        DB_FS_DATABASE: ${{ vars.DB_FS_DATABASE }}
+        DB_USERNAME: ${{ vars.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      run: dotnet-ef dbcontext scaffold "Server=$DB_HOST;Port=3306;Database=$DB_FS_DATABASE;Username=$DB_USERNAME;Password='$DB_PASSWORD'" Pomelo.EntityFrameworkCore.MySql --output-dir Model/FsDatabase --context ChoiceVFsDb --force --use-database-names --project ChoiceVDatabaseGenerator/ChoiceV.csproj 
+   
+    - name: Replace Connection String and build (copy to code)
+      working-directory: ./ChoiceVDatabaseGenerator
+      run: | 
+        ./script.bash; 
+        dotnet build
+    
+    - name: Build the Gameserver
+      run: dotnet build --no-restore -o ./test-build/ChoiceVServer

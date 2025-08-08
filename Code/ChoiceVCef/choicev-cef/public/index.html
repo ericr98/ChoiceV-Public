@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="This is the ChoiceV Cef. Its only useable inside the ChoiceV GameServer"
+    />
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');   
+      
+      @font-face {
+        font-family: 'Digital Numbers Regular';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Digital Numbers Regular'), url('fonts/DigitalNumbers-Regular.woff') format('woff');
+      }
+      
+    </style>
+        <script>
+          //Catch Events from Client and send them to React
+          // alt.on('INIT_WEBSOCKET', (id, url) => {
+          //     var event = new CustomEvent("INIT_WEBSOCKET", {detail: {identifier: id, url: url}})
+          //     document.dispatchEvent(event);
+          // });
+
+          // alt.on('CEF_EVENT', (data) => {
+          //     var event = new CustomEvent("CEF_EVENT", {detail: data})
+          //     document.dispatchEvent(event);
+          // });
+
+          document.onkeydown = function(e){
+            var n = (window.Event) ? e.which : e.keyCode;
+            if(n == 33 || n == 34) return false;
+          }
+
+          window.addEventListener('keydown', (e) => {
+              if (e.key !== 'Tab' && e.key !== ' ') return true;
+              if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return true;
+              e.preventDefault();
+              return false;
+          });
+
+        </script>
+
+    <script src="
+https://cdn.jsdelivr.net/npm/react-pdf-with-legacy-pdfjs@0.0.2/dist/cjs/entry.min.js
+"></script>
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>ChoiceV CEF</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

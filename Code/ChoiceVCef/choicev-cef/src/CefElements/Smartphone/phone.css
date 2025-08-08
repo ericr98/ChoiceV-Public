@@ -1,0 +1,402 @@
+:root {
+    --main-phone-time-font-size: 4vh;
+    --main-phone-date-font-size: 1.75vh;
+    --main-phone-time-date-font-weight: 300;
+}
+
+/* 
+    For all Apps
+*/
+
+
+.phoneAppTitle {
+    border-color: #323232;
+    border-bottom: solid;
+    border-width: var(--main-phone-contact-border-width);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+
+    font-size: 2.25vh;
+    font-family: var(--main-font-family);
+    font-weight: 300;
+}
+
+/* 
+    Phone
+*/
+
+.phoneBackground {
+    position: absolute;
+    height: 60vh;
+    width: 30vh;
+    right: 20vh;
+    background-size: 100% 100%;
+    transition: margin-top 1s ease 0.1s;
+}
+
+.phoneBackgroundHorizontal {
+    position: absolute;
+    height: 80vh;
+    width: 160vh;
+    background-size: 100% 100%;
+    transition: margin-top 1s ease 0.1s;
+}
+
+.phoneWorkplaceHorizontal {
+    position: absolute;
+    width: 78%;
+    height: 493%;
+    left: 12.6%;
+    top: 5.6%;
+
+    display: grid;
+    grid-template-rows: 18% 82%;
+}
+
+.phoneAppFullHorizontal {
+    width: 100%;
+    height: 100%;
+}
+
+.phoneRotationChangeButton{
+    position: fixed;
+    width: 3vh;
+    height: 3vh;
+    margin-left: 21vh;
+    margin-top: -4vh;
+}
+
+.phoneRotationChangeButtonHorizontal {
+    position: fixed;
+
+    width: 6vh;
+    height: 6vh;
+
+    margin-left: -8vh;
+    margin-top: 2vh;
+}
+
+.phoneWorkplace {
+    position: absolute;
+    width: 88.7%;
+    height: 78%;
+    left: 5.7%;
+    top: 12.6%;
+
+    display: grid;
+    grid-template-rows: 18% 82%;
+
+    background-size: 100% 100%;
+}
+
+.phoneClock {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 60% 40%;
+
+    color: white;
+    font-family: var(--main-font-family);
+    font-weight: var(--main-phone-time-date-font-weight);
+}
+
+    .phoneClockTime {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+
+        font-size: var(--main-phone-time-font-size);
+
+        padding-top: 4%;
+    }
+
+    .phoneClockDate {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+
+        font-size: var(--main-phone-date-font-size);
+    }
+
+.phoneApp {
+    width: 100%;
+    height: 100%;
+}
+
+.anim {
+    transition: all 1s;
+}
+
+.phoneAppFull {
+    width: 100%;
+    height: 100%;
+    grid-row: 1 / 3;
+}
+
+/*
+    ButtonsBar
+*/
+
+
+.phoneButtonsBar {
+    position: absolute;
+    width: 88.7%;
+    height: 6.75%;
+    left: 5.65%;
+    top: 90.7%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phoneButtonsBarGrid {
+    width: 90%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.horizontalPhoneButtonsBar {
+    position: absolute;
+    height: 88.7%;
+    width: 6.75%;
+    left: 91%;
+    top: 5.5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontalPhoneButtonsBarGrid {
+    width: 90%;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.phoneButtonWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phoneButtonImage {
+    transition: all 0.2s ease 0.1s;
+
+    outline: none;
+}
+
+.phoneButtonImage:hover {
+    transform: scale(1.065, 1.065);
+}
+
+/* 
+    MainScreen
+*/
+
+.mainAppWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.mainAppGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    width: 90%;
+    height: 90%;
+}
+
+.phoneIconWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+}
+
+.phoneIconImage {
+    position: absolute;
+    width: 5vh;
+    height: 5vh;
+
+    background-size: 100% 100%;
+    transition: all 0.3s;
+
+    outline: none;
+}
+
+.phoneIconImage:hover {
+    transform: scale(1.065, 1.065);
+}
+
+.phoneIconMissedInfo {
+    position: absolute;
+    width: 2vh;
+    height: 2vh;
+
+    border-radius: 50%;
+
+    margin-top: 4vh;
+    margin-left: 4vh;
+
+    background-color: var(--main-choicev-color);
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+    color: white;
+    font-size: 1.65vh;
+}
+
+/* 
+    Confirmation
+*/
+
+.phoneConfirmationWrapperFull {
+    position: sticky;
+    z-index: 999999;
+}
+
+.phoneConfirmation {
+    z-index: 999999;
+    width: 20vh;
+    height: 10vh;
+    border-radius: 3px;
+    background-color: #E3E3E3;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.phoneConfirmationWrapper {
+    grid-row: 1;
+    grid-column: 1 / 3;
+}
+
+.phoneConfirmationTitle {
+    width: 90%;
+    height: 90%;
+    grid-row: 1;
+    grid-column: 1 / 3;
+    text-align: center;
+}
+
+.phoneConfirmationIcon {
+    position: absolute;
+    margin-left: 19.9vh;
+    margin-top: -4.5vh;
+    width: 1.5vh;
+    height: 1.6vh;
+}
+
+.phoneConfirmationButton {
+    width: 85%;
+    height: 60%;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: var(--main-font-family);
+    color: white;
+    font-size: 1.3vh;
+    transition: all 0.3s;
+}
+
+.yesButton {
+    background-color: #268f3a;
+}
+
+.yesButton:hover {
+    background-color: #4F8F59;
+}
+
+.noButton {
+    background-color: #e8252f;
+}
+
+.noButton:hover {
+    background-color: #EB4C54;
+}
+
+.phoneConfirmationInputWrapper {
+    grid-column: 1 / 3;
+
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.phoneConfirmationInput {
+    height: 40%;
+    width: 85%;
+    outline: none;
+    border: none;
+    background-color: #BFBFBF;
+    font-size: 1.2vh;
+    font-weight: 400;
+    font-family: var(--main-font-family);
+}
+
+.phoneConfirmationNotificationButtonWrapper {
+    grid-column: 1 / 3;
+}
+
+.phoneConfirmationNotificationButton {
+    width: 50%;
+    height: 60%;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: var(--main-font-family);
+    color: white;
+    font-size: 1.3vh;
+    transition: all 0.3s;
+}
+
+/* 
+    Apps
+*/
+
+.standardAppBackground {
+    /* background-color: white;
+    opacity: 0.85; */
+    background-color: rgb(225, 225, 225, 0.95);
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(-0.25deg); }
+    20% { transform: rotate(0.25deg); }
+    30% { transform: rotate(0deg); }
+    40% { transform: rotate(0.25deg); }
+    50% { transform: rotate(-0.25deg); }
+    60% { transform: rotate(0deg); }
+    70% { transform: rotate(-0.25deg); }
+    80% { transform: rotate(0.25deg); }
+    90% { transform: rotate(0deg); }
+    100% { transform: rotate(-0.25deg); }
+}
+

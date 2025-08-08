@@ -1,0 +1,236 @@
+/* 
+    Food HUD
+*/
+
+.hudWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.foodHudBackground {
+    position: absolute;
+    top: 79%;
+    left: 95.75%;
+    height: 17vh;
+    width: 4vw;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    transform: scale(0.9);
+}
+
+.hungerThirstIcon {
+    transform: scale(1);
+}
+
+/* 
+    Car HUD
+*/
+
+.carHudBackground {
+    position: absolute;
+    top: 83%;
+    left: 41.5%;
+    height: 15vh;
+    width: 17.5vw;
+    display: grid;
+    grid-template-columns: 20% 78% 2%;
+    grid-template-rows: 27% 27% 23% 23%;
+    transform: scale(0.9);
+
+    background-color: black;
+    opacity: 0.85;
+
+    border: solid;
+    border-width: 1px;
+    border-color: var(--main-choicev-color);
+}
+
+.hudSpeedInfos {
+    color: white;
+    grid-column: 1 / 3;
+
+    display: grid;
+    padding-left: 3%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.hudCarInfoIcon {
+
+}
+
+.hudSpeedIconWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    grid-row: 2;
+    grid-template-columns: 1;
+}
+
+.hudSpeedIcon {
+    height: 2.35vh;
+}
+
+.hudSpeedTextWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    grid-row: 2;
+    grid-template-columns: 2;
+}
+
+.hudSpeedText {
+    color: white;
+    font-family: var(--main-font-family);
+    font-size: 3vh;
+    letter-spacing: 0.25vh;
+}
+
+.hudKmIconWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    grid-row: 3;
+    grid-template-columns: 1;
+}
+
+.hudSpeedText {
+    color: white;
+    font-family: var(--main-font-family);
+    font-size: 3vh;
+    letter-spacing: 0.25vh;
+}
+
+.hudKmTextWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    grid-row: 3;
+    grid-template-columns: 2;
+}
+
+.hudKmText {
+    color: white;
+    font-family: var(--main-font-family);
+    font-size: 2vh;
+    letter-spacing: 0.25vh;
+}
+
+.hudFuelIconWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    grid-row: 4;
+    grid-template-columns: 1;
+}
+
+.hudFuelBarWrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-row: 4;
+    grid-template-columns: 2;
+}
+
+.hudFuelIcon {
+    height: 3vh;
+}
+
+.hudFuelFrame {
+    width: 16vh;
+    height: 1.4vh;
+
+    display: grid;
+    grid-template: 1fr / 1fr;
+}
+
+.hudFuelFrame > * {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+}
+
+.hdFuekBar .top {
+    z-index: 1;
+}
+
+.hdFuekBar .below {
+    z-index: 2;
+}
+
+.hudFuelBar {
+    position: relative;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 16vh 100%;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+/* 
+    TerminalInfo
+*/
+
+.terminalHudBackground {
+    position: absolute;
+    top: 2%;
+    right: 1.5%;
+    height: 10vh;
+    width: 15vw;
+
+    display: grid;
+    grid-template-rows: 50% 50%;
+
+}
+
+.terminalHudToken {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+    color: white;
+}
+
+/*
+    Channels HUD
+ */
+
+#hudChannelsWrapper {
+    position: absolute;
+    top: 2%;
+    left: 1.5%;
+    height: 10vh;
+    width: 15vw;
+
+    display: block;
+}
+
+.hudChannelName{
+    font-family: "Digital-7"; 
+    font-weight: bold;
+    font-size: 2vh;
+    color: white;
+}

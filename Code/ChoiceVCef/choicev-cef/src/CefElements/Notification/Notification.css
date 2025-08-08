@@ -1,0 +1,30 @@
+.notificationToaster {
+  margin-bottom: 20vh;
+}
+
+.Toastify__toast-icon {
+  padding-right: 2vh;
+}
+
+.Toastify__progress-bar {
+  border-radius: 0px !important;
+}
+
+.alert {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+
+  color: #fff !important;
+  font-family: 'Lato' !important;
+  font-size: 1.25vh;
+
+  border-radius: 0px !important;
+}
+
+.alert.Danger {background-color: #e74c3c !important; }
+.alert.Success {background-color: #4CAF50 !important; }
+.alert.Info {background-color: #3498db !important; }
+.alert.Warning {background-color: #F2A90F !important; }

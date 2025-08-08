@@ -1,0 +1,60 @@
+[*.cs]
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = none
+
+# IDE1006: Naming Styles
+dotnet_diagnostic.IDE1006.severity = none
+
+[*]
+
+# Microsoft .NET properties
+csharp_indent_braces = false
+csharp_new_line_before_catch = false
+csharp_new_line_before_else = false
+csharp_new_line_before_members_in_object_initializers = false
+csharp_new_line_before_open_brace = none
+csharp_preserve_single_line_blocks = true
+csharp_space_after_cast = false
+
+# ReSharper properties
+resharper_align_multiline_binary_expressions_chain = false
+resharper_align_multiline_statement_conditions = false
+resharper_allow_comment_after_lbrace = true
+resharper_blank_lines_after_block_statements = 0
+resharper_blank_lines_after_start_comment = 0
+resharper_blank_lines_around_auto_property = 0
+resharper_blank_lines_around_property = 0
+resharper_blank_lines_around_single_line_type = 0
+resharper_csharp_blank_lines_around_field = 0
+resharper_csharp_blank_lines_around_invocable = 0
+resharper_csharp_blank_lines_around_region = 0
+resharper_csharp_blank_lines_around_type = 0
+resharper_csharp_indent_pars = outside
+resharper_csharp_insert_final_newline = true
+resharper_csharp_keep_blank_lines_in_code = 100
+resharper_csharp_keep_blank_lines_in_declarations = 100
+resharper_csharp_max_line_length = 695
+resharper_indent_preprocessor_region = do_not_change
+resharper_indent_statement_pars = outside
+resharper_keep_existing_attribute_arrangement = true
+resharper_keep_existing_enum_arrangement = false
+resharper_place_accessorholder_attribute_on_same_line = false
+resharper_place_expr_accessor_on_single_line = true
+resharper_place_expr_method_on_single_line = true
+resharper_place_field_attribute_on_same_line = false
+resharper_place_simple_embedded_statement_on_same_line = false
+resharper_place_simple_initializer_on_single_line = false
+resharper_remove_blank_lines_near_braces_in_code = false
+resharper_remove_blank_lines_near_braces_in_declarations = false
+resharper_space_after_attributes = false
+resharper_space_before_catch_parentheses = false
+resharper_space_before_foreach_parentheses = false
+resharper_space_before_for_parentheses = false
+resharper_space_before_if_parentheses = false
+resharper_space_before_lock_parentheses = false
+resharper_space_before_switch_parentheses = false
+resharper_space_before_using_parentheses = false
+resharper_space_before_while_parentheses = false
+resharper_space_within_single_line_array_initializer_braces = true
+resharper_wrap_object_and_collection_initializer_style = chop_always

@@ -1,0 +1,45 @@
+{
+  "name": "choicev-cef",
+  "homepage": "http://choicev-cef.net/cef",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "crypto-js": "^4.2.0",
+    "howler": "^2.2.4",
+    "react": "^18.2.0",
+    "react-color": "^2.19.3",
+    "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.6",
+    "react-hot-toast": "^2.4.1",
+    "react-konva": "^18.2.10",
+    "react-konva-utils": "^1.0.6",
+    "react-pageflip": "^2.0.3",
+    "react-pdf": "^9.1.0",
+    "react-scripts": "^5.0.1",
+    "react-select": "^5.8.3",
+    "react-sortablejs": "^6.1.4",
+    "react-toastify": "^10.0.5"
+  },
+  "scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

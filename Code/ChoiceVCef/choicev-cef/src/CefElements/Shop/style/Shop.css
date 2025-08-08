@@ -1,0 +1,346 @@
+#shopBackground {
+    width: 149vh;
+    height: 80vh;
+
+    background-color: #2E3338;
+
+    display: grid;
+    grid-template-rows: 11% 89%;
+    grid-template-columns: 5% 95%;
+
+    font-family: var(--main-font-family);
+
+    opacity: 0.975;
+}
+
+#shopTitle {
+    width: 100%;
+    height: 100%;
+    grid-row: 1;
+    grid-column: 1 / 3;
+
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+#shopTitleText {
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    color: white;
+    font-size: 4vh;
+    letter-spacing: 0.1vw;
+    padding-left: 2.5%;
+}
+
+.shopTitleButtonWrapper {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+#shopTitleButton {
+    margin-left: 42.5%;
+    width: 50%;
+    height: 40%;
+    
+    outline: none;
+    border: none;
+    
+    background-color: var(--main-choicev-color);
+
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+#shopTitleButton:hover {
+    -webkit-filter: brightness(85%);
+    filter: brightness(85%);
+}
+
+#shopTitleButton:hover > .standardWrapper > .shopTitleButtonIcon {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    cursor: pointer;
+}
+
+.shopTitleButtonIcon {
+    grid-column: 1;
+    width: 3vh;
+}
+
+.shopTitleButtonText {
+    grid-column: 2;
+    color: var(--main-font-color);
+    font-size: 155%;
+}
+
+#shopSideBar {
+    grid-row: 2;
+    grid-column: 1;
+    
+    background-color: #212528;   
+    overflow-y: scroll;
+}
+
+.shopSideBarElementWrapper {
+    width: 100%;
+    height: 6.5vh;
+    
+    margin-bottom: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shopSideBarElementWrapper:hover > .shopSideBarElement {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+
+    cursor: pointer;
+}
+
+.shopSideBarElement {
+    width: 60%;
+}
+
+.shopSideBarElementWrapperSelected {
+    background-color: var(--main-choicev-color);
+}
+
+.shopItemListWrapper {
+    width: 97.5%;
+    height: 95%;
+
+    display: grid;
+    grid-template-rows: 7.5% 92.5%;
+}
+
+.shopItemListTopBar {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.shopItemListTopBarText {
+    width: 5%;
+    height: 3.2vh;
+
+    outline: none;
+    border: none;
+    
+    color: white;
+    font-size: 120%;
+
+    text-align: right;
+}
+
+.shopItemListTopBarInput {
+    height: 2.5vh;
+    width: 10vw;
+    outline: none;
+    border: none;
+    font-size: 120%;
+    margin-left: 1%;
+}
+
+.shopItemListTopBarPrice {
+    float: right;
+    color: white;
+    font-size: 120%;
+    margin-left: 52.5%;
+    width: 22.5%;
+}
+
+.shopItemListTopBarButton:hover {
+    -webkit-filter: brightness(85%);
+    filter: brightness(85%);
+
+    cursor: pointer;
+}
+
+.shopItemEndBuy {
+    margin-left: 2% !important;
+    width: 17.5% !important;
+    height: 3vh !important;
+    font-size: 1.2vh !important;
+
+    outline: none;
+    border: none;
+    background-color: var(--main-choicev-color);
+    color: white;
+}
+
+.shopItemEndBuyIcon {
+    width: 2.2vh !important;
+    height: 2.2vh !important;
+}
+
+.shopItemListTable {
+    font-size: 1.7vh;
+    color: white;
+    border-collapse: collapse;
+    height: 100%;
+    width: 100%;
+
+    overflow-y: scroll;
+}
+
+.shopItemListTableElement {
+    height: 3vh;
+    display: table-row;
+}
+
+.shopItemListTableHeadWrapper {
+    position: sticky; 
+    width: 100%;
+}
+
+.shopItemListTableHead {
+    background-color: #2A2F34;
+    text-align: left;
+    
+    padding: 0.5%;
+}
+
+.shopItemListTableElement:nth-child(even) {
+    -webkit-filter: brightness(85%);
+    filter: brightness(85%);
+}
+
+.shopItemListTableElementRow {
+    background-color: #212528;
+    text-align: left;
+    padding: 0.5%;
+}
+
+.shopItemListTableElementAmount {
+    width: 75%;
+}
+
+.shopHidden {
+    width: 75%;
+    outline: none;
+    border: none;
+
+    background-color: #212528;
+}
+
+.shopHidden:hover {
+    cursor: default;
+}
+
+.shopItemListTableElementButton {
+    height: 2.5vh;
+    width: 2.5vh;
+
+    font-size: 2vh;
+
+    outline: none;
+    border: none;
+    color: white;
+
+    background-color: #229700;
+}
+
+.shopItemListTableElementButton:hover {
+    -webkit-filter: brightness(85%);
+    filter: brightness(85%);
+}
+
+.shopItemShoppingCart {
+    background-color: #970000 !important;
+}
+
+.shopPopupWrapper {
+    position: absolute;
+    z-index: 100;
+    width: 40%;
+    height: 40%;
+    background-color: #212528;
+    margin-bottom: 5%;
+
+    display: grid;
+    grid-template-rows: 15% 85%;
+}
+
+.shopPopUpHeader {
+    width: 97.5% !important;
+    background-color: rgb(48, 124, 184);
+    color: white;
+    font-size: 200%;
+    letter-spacing: 0.1vw;
+    padding-left: 2.5%;
+
+    display: flex;
+}
+
+.shopPopUpMain {
+    width: 85%;
+    height: 70%;
+    overflow-y: scroll;
+}
+
+.shopPopUpOption {
+    display: grid;
+    grid-template-columns: 45% 45% 10%;
+    width: 95%;
+    height: 4vh;
+    margin-top: 1.5vh;
+    background-color: #2E3338;
+}
+
+.shopPopUpOptionText {
+    margin-left: 2vh;
+    color: white;
+    font-size: 120%;
+}
+
+.shopPupUpCloseButton {
+    position: absolute;
+
+    width: 3vh;
+    height: 3vh;
+    border-radius: 50%;
+    margin-left: 92.5%;
+
+    outline: none;
+    border: none;
+    background-color: red;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
+    transition: 0.1s;
+}
+
+.shopPupUpCloseButton > div {
+    width: 2vh;
+    height: 2vh;
+    font-size: 1.5vh;
+}
+
+.shopPupUpCloseButton:hover {
+    background-color: darkred;
+}

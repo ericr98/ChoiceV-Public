@@ -1,0 +1,133 @@
+.menuPadding { 
+    white-space: nowrap;
+    padding-left: 3%;
+}
+
+.menuDescriptionPadding {
+    width: 0%;
+    padding-left: 3%;
+}
+ 
+
+.menuElement {
+    width: 100%;
+    height: 2vw;
+    line-height: 2vw;
+    font-size: 0.75vw;
+
+    color: var(--main-font-color);
+
+    display: flex;
+ 
+    border-right: solid;
+    border-left: solid;
+    border-width: 1px;
+    border-color: var(--main-choicev-color);
+}
+
+.menuElementRight {
+    float: right;
+    text-align: right;
+    padding-right: 3%;
+    vertical-align: middle;
+    
+    white-space: nowrap;
+}
+
+.menuElementRightAutocomplete {
+    padding-right: 3%;
+    vertical-align: middle;
+    
+}
+
+.menuElementList {
+    width: 100%;
+    display: inline-block;
+    text-align: right;
+}
+
+.menuElementInput {
+    height: 42%;
+    width: 15.9vh;
+    font-size: 0.75vw;
+}
+
+.menuElementCheck {
+    outline: none;
+    margin-top: 7%;
+}
+
+.menuElementFile {
+    font-size: 0.75vw;
+    margin-left: 30%; 
+}
+
+/* 
+ Add new style classes here
+*/
+
+.normal {
+    background-color: var(--sec-bg-color-faded);
+}
+
+.normalIsCurrent {
+    background-color: rgba(75, 75, 75, 0.9);
+}
+
+.lightlyGreen {
+    background-color: rgb(60, 104, 60, 0.9);
+}
+
+.lightlyGreenIsCurrent {
+    background-color: rgb(80, 135, 80, 0.9);
+}
+
+.green {    
+    background-color:  rgba(13, 88, 36, 0.9);
+}
+
+.greenIsCurrent {    
+    background-color:  rgba(21, 146, 58, 0.85);
+}
+
+.yellow {    
+    background-color:  rgba(204, 198, 51, 0.9);
+}
+
+.yellowIsCurrent {    
+    background-color:  rgba(239, 230, 59, 0.85);
+}
+
+.red {    
+    background-color:  rgba(119, 18, 18, 0.9);
+}
+
+.redIsCurrent {    
+    background-color:  rgba(173, 23, 23, 0.85);
+}
+
+/*Banks*/
+
+.fleecaBank {    
+    background-color:  rgba(38, 143, 58, 0.8);
+}
+
+.fleecaBankIsCurrent {    
+    background-color:  rgba(49, 183, 74, 0.85);
+}
+
+.libertyBank {    
+    background-color:  rgba(0, 33, 125, 0.8);
+}
+
+.libertyBankIsCurrent {    
+    background-color:  rgba(0, 42, 160, 0.85);
+}
+
+.mazeBank {    
+    background-color:  rgba(223, 29, 36, 0.8);
+}
+
+.mazeBankIsCurrent {    
+    background-color:  rgba(255, 33, 44, 0.85);
+}

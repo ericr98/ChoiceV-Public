@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='charCreator.css'>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body style="background: transparent; background-color: transparent;">
+
+    <!--Generel Info Popup-->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLongTitle">Allgemeine Informationen</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Willkommen im ChoiceV Charakter Designer</p>
+                    <p>Mit den Slidern kannst du die jeweiligen Gesichtsmerkmale einstellen.</p>
+                    <p>Um einen Slider mit den Pfeiltasten zu bedienen, wähle ihn mit dem Mauszeiger aus und benutze anschließend die Pfeiltasten.</p>
+                    <p>Es kann sein, dass Makeup vorerst nicht geändert werden kann.</p>
+                    <p>Vergiss, bevor du deinen Charakter speicherst nicht den Namen bzw. das Geburtsdatum einzustellen!  </p>
+                    <p>Achte bitte darauf die Namenszusätze und Beinamen deines Charakters in die richtigen Felder zu schreiben</p>
+                    <p>Sollte dein Charakter keinen Titel (Prof., Dr., etc. [sollte im Support abgeklärt worden sein!]) haben lasse das entsprechende Feld leer!</p>
+                    <p>Suche dir bitte einen spezifischen Vor sowie Nachnamen aus, welcher jeweils nicht zu lang sein sollte!</p>
+                    <p> Viel Spaß!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Masken Info Popup-->
+    <div class="modal fade" id="maskModal" tabindex="-1" role="dialog" aria-labelledby="maskModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="maskModalLongTitle">Masken-Checker</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Mit dem angezeigten Slider kannst du überprüfen wie dein Charakter aussieht wenn er Masken trägt.</p>
+                    <p>
+                        Fokussiere dich auf Masken die nicht das komplette Gesicht bedecken (wie z.B. Bandanas). Für Masken
+                        die
+                        das komplette Gesicht bedecken (und nur noch Augen und/oder Mund freilassen, wie z.B. Sturmhauben),
+                        wird
+                        der Server versuchen die Fehler beim Aufziehen zu beheben. </p>
+                    <p> Dies funktioniert aber leider unter
+                        gewissen
+                        Umständen nicht immer perfekt. Achte deshalb darauf, dass so wenig von deinem Gesicht wie möglich
+                        durch
+                        die Maske ragt!</p>
+                    <p>Die Maske ist nur zur Überprüfung da, und wird nach dem Speichern nicht für deinen Charakter gesetzt!</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="faceCreator">
+        <div id="faceTitle">Gesichtsmerkmale</div>
+        <div id="faceFeatures">
+                <div class="genLabel" id="info">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#infoModal"> Klicke mich für allgemeine Infos </button>
+                </div>
+                <div class="maskChecker">   
+                        <label class="genLabel maskLabel" for="maskSlider"></label>
+                        <button type="button" class="btn btn-primary" id="maskButton" data-toggle="modal" data-target="#maskModal"> Klick mich für Infos zu Masken </button>
+                        <input type="range" class="custom-range" min="0" max="147" step="1" value="0" id="maskSlider" oninput="maskChange(this.value)" />
+                </div>
+            <div id="accordion">
+                <!--Face Feature Selection-->
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-secondary" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">Gesicht > </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="accElement">
+                            <div class="card-element">
+                                <label class="genLabel" for="faceFather">Vater</label>
+                                <label id="fatherlabel" class="genLabel" for="faceMother">Benjamin</label>
+                                <input type="range" class="custom-range accRange" min="0" max="45" step="1" value="0"
+                                    id="faceFather" oninput="updateFather(this.id, this.value)">
+                            </div>
+
+                            <div class="card-element">
+                                <label class="genLabel" for="faceMother">Mutter</label>
+                                <label id="motherlabel" class="genLabel" for="faceMother">Benjamin</label>
+                                <input type="range" class="custom-range accRange" min="0" max="45" step="1" value="0"
+                                    id="faceMother" oninput="updateMother(this.id, this.value)">
+                            </div>
+
+                            <div class="card-element">
+                                <label class="genLabel" for="faceShape">Vater-Mutter-Verhältnis</label>
+                                <input type="range" class="custom-range accRange" min="0" max="1" step="0.1" value="0.5"
+                                    id="faceShape" oninput="update(this.id, this.value)">
+                            </div>
+
+                            <div class="card-element">
+                                <label class="genLabel" for="faceSkin">Hautfarben-Verhältnis</label>
+                                <input type="range" class="custom-range accRange" min="0" max="1" step="0.1" value="0.5"
+                                    id="faceSkin" oninput="update(this.id, this.value)">
+                            </div>
+
+                            <div class="card-element">
+                                <label class="genLabel" for="faceEyes">Augenfarbe</label>
+                                <input type="range" class="custom-range accRange" min="0" max="14" step="1" value="0" 
+                                    id="faceEyes" oninput="update(this.id, this.value)"> <!--Geht eig. bis 31, die letzen sind aber unsinn-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">Gesichtsmerkmale > </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_0">Nasenbreite</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_0" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_1">Nasenhöhe</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_1" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_2">Nasenspitzenlänge</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_2" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_3">Nasenrücken</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_3" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_4">Nasenspitzenhöhe</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_4" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_5">Nasenkorrektur</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_5" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_6">Stirnhöhe</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_6" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_7">Stirnweite</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_7" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_8">Wangenknochenhöhe</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_8" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_9">Wangenknochenbreite</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_9" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_10">Wangenbreite</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="1" step="0.1"
+                                        value="0" id="faceFeature_10" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_11">Augenweite</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_11" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_12">Lippenbreite</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_12" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_13">Kieferbreite</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_13" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_14">Kiefertiefe</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_14" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_15">Kinnhöhe</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_15" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_16">Kinntiefe</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_16" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_17">Kinbreite</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_17" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="faceFeature_18">Kinnmerkmal</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="1" step="0.1"
+                                        value="0" id="faceFeature_18" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">Haare >
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="hairStyle">Haartyp</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="100" step="1"
+                                        value="0" id="hairStyle" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="hairColor">Haarfarbe</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="hairColor" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="hairHighlight">Highlight</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="hairHighlight" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="hairOverlay">Haaransatz</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="1" step="1"
+                                        value="0" id="hairOverlay" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Bart
+                                    >
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_1">Style</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="29" step="1"
+                                        value="255" id="overlay_1" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlaycolor_1">Farbe</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlaycolor_1" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlayhighlight_1">Highlight</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlayhighlight_1" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingFive">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">Augenbrauen >
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_2">Style</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="34" step="1"
+                                        value="255" id="overlay_2" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlaycolor_2">Farbe</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlaycolor_2" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlayhighlight_2">Highlight</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlayhighlight_2" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingSix">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseSix" aria-expanded="false"
+                                    aria-controls="collapseSix">Brusthaar >
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_10">Style</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="16" step="1"
+                                        value="-1" id="overlay_10" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlaycolor_10">Farbe</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="0" id="overlaycolor_10" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingSeven">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseSeven" aria-expanded="false"
+                                    aria-controls="collapseSeven">Gesichtsröte >
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_5">Style</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="34" step="1"
+                                        value="255" id="overlay_5" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlaycolor_5">Farbe</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlaycolor_5" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlayhighlight_5">Highlight</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlayhighlight_5" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingEight">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseEight" aria-expanded="false"
+                                    aria-controls="collapseEight">Lippenstift >
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseEight" class="collapse" aria-labelledby="headingEight"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_8">Style</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="10" step="1"
+                                        value="255" id="overlay_8" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlaycolor_8">Farbe</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlaycolor_8" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlayhighlight_8">Highlight</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlayhighlight_8" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_8_opacity">Sichtbarkeit</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="1" step="0.1"
+                                        value="1" id="overlay_8_opacity" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingNine">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseNine" aria-expanded="false"
+                                    aria-controls="collapseNine">Makeup >
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseNine" class="collapse" aria-labelledby="headingNine"
+                            data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_4">Makeup</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="72" step="1"
+                                        value="-1" id="overlay_4" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlaycolor_4">Farbe</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlaycolor_4" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlayhighlight_4">Highlight</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="63" step="1"
+                                        value="255" id="overlayhighlight_4" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_4_opacity">Sichtbarkeit</label>
+                                    <input type="range" class="custom-range accRange" min="0" max="1" step="0.1"
+                                        value="1" id="overlay_4_opacity" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="headingTen">
+                            <h5 class="mb-0">
+                                <button class="btn btn-secondary" data-toggle="collapse"
+                                    data-target="#collapseTen" aria-expanded="false"
+                                    aria-controls="collapseTen">Merkmale >
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_0">Makel</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="24" step="1"
+                                        value="-1" id="overlay_0" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_3">Falten</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="15" step="1"
+                                        value="-1" id="overlay_3" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_6">Sonnenbrand</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="12" step="1"
+                                        value="-1" id="overlay_6" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_7">Hautalter</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="11" step="1"
+                                        value="-1" id="overlay_7" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_9">Flecken</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="18" step="1"
+                                        value="-1" id="overlay_9" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_11">Oberkörper Makel</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="12" step="1"
+                                        value="-1" id="overlay_11" oninput="update(this.id, this.value)">
+                                </div>
+
+                                <div class="card-element">
+                                    <label class="genLabel" for="overlay_12">Oberkörper Flecken</label>
+                                    <input type="range" class="custom-range accRange" min="-1" max="2" step="1"
+                                        value="-1" id="overlay_12" oninput="update(this.id, this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="charOther">
+        <div id="genTitle">Allgemein</div>
+        <div id="charGeneral">
+
+            <label class="genLabel" for="title">Name wählen</label>
+
+            <div id="titleField" class="genElement"><!--Space-->
+                <input type="text" id="title" placeholder="Titel" style="width:50%; margin-left:25%; height: 35px" aria-describedby="basic-addon2" oninput="update('title', this.value)">
+            </div>
+            <div id="name" class="genElement"><!--Space-->
+                <input id="firstName" class="nameInput" type="text" placeholder="Vorname" aria-label="Vorname"
+                    aria-describedby="basic-addon2" oninput="update('firstName', this.value)">
+                <div></div>
+                <!--Space-->
+                <input id="lastName" class="nameInput" type="text" placeholder="Nachname" aria-label="Nachname"
+                    aria-describedby="basic-addon2" oninput="update('lastName', this.value)">
+            </div>
+
+            <div id="nameInput" class="genElement"><!--Space-->
+                <input type="text" id="middleNames" placeholder="Zwischennamen" aria-label="Mittelnamen" aria-describedby="basic-addon2" style="width:90%; margin-left:5%; height: 35px" oninput="update('middleNames', this.value)">
+            </div>
+            <label class="genLabel" for="birth">Geburtstag wählen</label>
+            <div id="birth" class="genElement">
+                <input type="date" id="charBirth" class="form-control" placeholder="dd.mm.yyyy" value="01.01.2000" oninput="update(this.id, this.value)">
+            </div>  
+
+            <label class="genLabel" for="gender">Herkunft/Einbürgerungssstaat auswählen</label>
+            <div id="state">
+                <select id="stateSelect" class="form-select" oninput="selectState(this.options[this.selectedIndex].value)">
+                </select>
+            </div>
+
+            <label class="genLabel" for="gender">Geschlecht wählen</label>
+            <div id="gender" class="genElement">
+                <div id="genderButtons" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <input class="genderButton" type="radio" name="options" id="male" autocomplete="off" checked onchange="genderChange('male')"> Männlich 
+                    </label>
+
+                    <label class="btn btn-secondary">
+                        <input class="genderButton" type="radio" name="options" id="female" autocomplete="off" onchange="genderChange('female')"> Weiblich
+                    </label>
+                </div>
+            </div>
+
+
+            <label class="genLabel" for="rotate">Rotieren</label>
+            <div id="rotate">
+                <input type="range" class="custom-range" min="-180" max="180" step="1" id="rotateSlider" oninput="rotate(this.value)">
+            </div>
+
+            <label class="genLabel" for="gender">Kamera ändern</label>
+            <div id="gender" class="genElement">
+                <div id="genderButtons" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <input class="genderButton" type="radio" name="options" id="Face" autocomplete="off" checked onchange="camChange('face')">
+                        Gesicht </label>
+
+                    <label class="btn btn-secondary">
+                        <input class="genderButton" type="radio" name="options" id="Clothes" autocomplete="off" onchange="camChange('clothes')">
+                        Ganzkörper </label>
+                </div>
+            </div>
+
+            <!-- <label class="genLabel" for="gender">Start Outfit wählen</label>
+            <div id="gender" class="genElement">
+                <div id="outfitButtons" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary outfitButton">
+                        <input type="radio" name="options" id="casual" autocomplete="off" checked onchange="updateOutfit('outfit', 'CASUAL', this);"> Casual 
+                    </label>
+
+                    <label class="btn btn-secondary outfitButton">
+                        <input type="radio" name="options" id="smart-casual" autocomplete="off" onchange="updateOutfit('outfit', 'SMART_CASUAL', this)"> Smart-Casual
+                    </label>
+
+                    <label class="btn btn-secondary outfitButton">
+                        <input type="radio" name="options" id="buisness" autocomplete="off" onchange="updateOutfit('outfit', 'BUSINESS', this)"> Buisness
+                    </label>
+                </div>
+            </div> -->
+
+            <!-- <div id="clothesSelection">
+
+                <div class="clothesSlider">
+                    <label class="genLabel" for="hatSlider">Hut</label>
+                    <input type="range" class="custom-range" min="0" max="4" step="1" value="0" id="hatSlider" oninput="clothesChange('hat', this.value)">
+                </div>
+
+                <div class="clothesSlider">
+                    <label class="genLabel" for="topSlider">Oberteil</label>
+                    <input type="range" class="custom-range" min="0" max="4" step="1" value="0" id="topSlider" oninput="clothesChange('top',this.value)">
+                </div>
+
+                <div class="clothesSlider">
+                    <label class="genLabel" for="LegsSlider">Hose</label>
+                    <input type="range" class="custom-range" min="0" max="4" step="1" value="0" id="legsSlider" oninput="clothesChange('legs',this.value)">
+                </div>
+
+                <div class="clothesSlider">
+                    <label class="genLabel" for="shoeSlider">Schuhe</label>
+                    <input type="range" class="custom-range" min="0" max="4" step="1" value="0" id="shoeSlider" oninput="clothesChange('feet',this.value)">
+                </div>
+            </div> -->
+        </div>
+
+        <button class="btn btn-primary" id="saveButton" onclick="saveChar()"> Charakter speichern</button>
+        <button class="btn btn-cancel" id="cancelButton" onclick="cancel()"> Abbrechen</button>
+
+    </div>
+
+</body>
+
+<script src="charCreator.js"></script>
+</html>

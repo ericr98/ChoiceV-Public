@@ -1,0 +1,23 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: PR Check Job
+
+on:
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    environment: ServerCodeBuild
+    steps:
+    - name: Extract version number
+      id: extract_version
+      run: |
+        if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          VERSION=$(echo "${{ github.event.pull_request.title }}" | grep -oP '^[a-zA-z\-]*\d+\.\d+\.\d+')
+        else
+          VERSION=$(echo "${{ github.event.head_commit.message }}" | grep -oP '^[a-zA-z\-]*\d+\.\d+\.\d+')
+        fi
+        echo "version=${VERSION}" >> $GITHUB_OUTPUT

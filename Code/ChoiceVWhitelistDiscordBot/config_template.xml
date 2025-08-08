@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Settings>
+	<BotToken>BOT_TOKEN</BotToken>
+	<BotLogLevel>Debug</BotLogLevel>
+	<BotCommandsPrefix>-</BotCommandsPrefix>
+
+	<WhitelistChannelNamePrefix>whitelistantrag</WhitelistChannelNamePrefix>
+	<WhitelistLogChannelNamePrefix>log-whitelistantrag</WhitelistLogChannelNamePrefix>
+    <DiscordServerId>0</DiscordServerId>
+	<DiscordSucceedRoleId>0</DiscordSucceedRoleId>
+	<BotLoggingChannel>0</BotLoggingChannel>
+	<SupportInfoChannel>0</SupportInfoChannel>
+	<SupportRankId>0</SupportRankId>
+
+	<WhitelistTicketsCategory>0</WhitelistTicketsCategory>
+	<WhitelistLogsCategory>0</WhitelistLogsCategory>
+	
+	<DatabaseIp>DB_IP</DatabaseIp>
+	<DatabasePort>3306</DatabasePort>
+	<DatabaseDatabase>DB_DB</DatabaseDatabase>
+	<DatabaseUser>DB_USER</DatabaseUser>
+	<DatabasePassword>'DB_PW'</DatabasePassword>
+
+	<TeamspeakAddress>TS_IP</TeamspeakAddress>
+	<TeamspeakPort>10011</TeamspeakPort>
+	<TeamspeakUser>serveradmin</TeamspeakUser>
+	<TeamspeakPassword>TS_PW</TeamspeakPassword>
+</Settings>

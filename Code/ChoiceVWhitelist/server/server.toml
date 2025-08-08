@@ -1,0 +1,27 @@
+announce = false
+debug = true
+description = 'alt:V Sample Server'
+gamemode = 'Freeroam'
+language = 'de'
+modules = [ 'js-module', 'csharp-module' ]
+name = 'ChoiceV Whitelisting Server'
+players = 128
+port = 7788
+resources = [ 'ChoiceVWhitelist', 'ChoiceVWhitelistClient' ]
+website = 'choicev.net'
+password = 4732
+
+[voice]
+# The bitrate of the voice server
+bitrate = 64000
+# The secret for the external server (only needed when using externalHost)
+# The secret must consist of numeric values only
+externalSecret = 775848338
+# The external host address (leave 127.0.0.1, if voice-server is on same machine)
+externalHost = "91.107.203.90"
+# The external host port
+externalPort = 7798
+# The external host public address (should be the ip address of your server, not localhost!)
+externalPublicHost = "91.107.203.90"
+# The external host public port
+externalPublicPort = 7799

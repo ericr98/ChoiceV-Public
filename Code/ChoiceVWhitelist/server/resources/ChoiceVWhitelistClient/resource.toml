@@ -1,0 +1,4 @@
+client-files = [ 'js/*', 'cef/*' ]
+client-main = 'js/client.mjs'
+main = 'index.mjs'
+type = 'js'

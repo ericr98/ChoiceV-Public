@@ -1,0 +1,4 @@
+client-files = [ 'js/*', 'cef/NEEDED/*', 'js/jsencrypt/*' ]
+client-main = 'js/client.js'
+main = 'index.js'
+type = 'js'

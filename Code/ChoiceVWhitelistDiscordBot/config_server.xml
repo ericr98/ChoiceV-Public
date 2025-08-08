@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Settings>
+	<BotToken>BOT_TOKEN</BotToken>
+	<BotLogLevel>Debug</BotLogLevel>
+	<BotCommandsPrefix>-</BotCommandsPrefix>
+
+	<WhitelistChannelNamePrefix>whitelistantrag</WhitelistChannelNamePrefix>
+	<WhitelistLogChannelNamePrefix>log-whitelistantrag</WhitelistLogChannelNamePrefix>
+    <DiscordServerId>ID</DiscordServerId>
+	<DiscordSucceedRoleId>ID</DiscordSucceedRoleId>
+	<TeamspeakSucceedRoleIds>ID</TeamspeakSucceedRoleIds>
+	<BotLoggingChannel>ID</BotLoggingChannel>
+	<SupportInfoChannel>ID</SupportInfoChannel>
+	<SupportRoleId>ID</SupportRoleId>
+
+	<WhitelistTicketsCategory>ID</WhitelistTicketsCategory>
+	<WhitelistLogsCategory>ID</WhitelistLogsCategory>
+
+	<ServerEmojiId>ID</ServerEmojiId>
+	<ServerEmojiName>:choiceV:</ServerEmojiName>
+
+	<WhitelistStartChannel>ID</WhitelistStartChannel>
+	
+	<DatabaseIp>IP</DatabaseIp>
+	<DatabasePort>3306</DatabasePort>
+	<DatabaseDatabase>choicev_whitelist</DatabaseDatabase>
+	<DatabaseUser>USER</DatabaseUser>
+	<DatabasePassword>PW</DatabasePassword>
+
+	<TeamspeakAddress>ID</TeamspeakAddress>
+	<TeamspeakPort>10011</TeamspeakPort>
+	<TeamspeakUser>serveradmin</TeamspeakUser>
+	<TeamspeakPassword>PW</TeamspeakPassword>
+
+	<GitUser>USER</GitUser>
+	<GitPassword>PW</GitPassword>
+
+	<ServerCommandInfoChannel>ID</ServerCommandInfoChannel>
+	<AltVServerPath>C:\ChoiceV\Server\server\</AltVServerPath>
+</Settings>

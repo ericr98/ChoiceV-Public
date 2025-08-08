@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ChoiceVWhitelist": {
+      "commandName": "Executable",
+      "executablePath": "../server/altv-server.exe",
+      "workingDirectory": "../server/"
+    }
+  }
+}

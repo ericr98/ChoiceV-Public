@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "ChoiceVServer": {
+      "commandName": "Executable",
+      "executablePath": ".\\altv-server.exe",
+      "workingDirectory": "../server"
+    }
+  }
+}

@@ -1,0 +1,2 @@
+sed -i 's/UseMySql(".*",/UseMySql\($"server={Config.DatabaseIp};port={Config.DatabasePort};database={Config.DatabaseDatabase};username={Config.DatabaseUser};password={Config.DatabasePassword}",/g' "ChoiceVDatabaseGenerator/Model/Database/ChoiceVDb.cs"
+sed -i 's/UseMySql(".*",/UseMySql\($"server={Config.FVSDatabaseIp};port={Config.FVSDatabasePort};database={Config.FVSDatabaseDatabase};username={Config.FVSDatabaseUser};password={Config.FVSDatabasePassword}",/g' "ChoiceVDatabaseGenerator/Model/FsDatabase/ChoiceVFsDb.cs"

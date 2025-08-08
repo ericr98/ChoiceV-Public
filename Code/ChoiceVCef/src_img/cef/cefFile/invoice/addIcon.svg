@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="384" height="384" viewBox="0 0 384 384">
+  <g id="Gruppe_1" data-name="Gruppe 1" transform="translate(-729 -225)">
+    <circle id="Ellipse_1" data-name="Ellipse 1" cx="192" cy="192" r="192" transform="translate(729 225)" fill="#268f3a"/>
+    <path id="Linie_1" data-name="Linie 1" d="M0,0,56.914.184l34.31.111L310,1" transform="translate(922.001 262.999) rotate(90)" fill="none" stroke="#fff" stroke-width="30"/>
+    <path id="Linie_2" data-name="Linie 2" d="M0,1,266.406.141,310,0" transform="translate(765.5 416.501)" fill="none" stroke="#fff" stroke-width="30"/>
+  </g>
+</svg>
